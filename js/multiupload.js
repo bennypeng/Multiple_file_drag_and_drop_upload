@@ -38,7 +38,16 @@ function multiUploader(config){
 						sampleIcon = '<img src="images/unknown.png" />';
 						errorClass =" invalid";
 					} 
-					html += '<div class="dfiles'+errorClass+'" rel="'+uId+'"><h5>'+sampleIcon+this.items[i].name+'</h5><div id="'+uId+'" class="progress" style="display:none;"><img src="images/ajax-loader.gif" /></div></div>';
+					html += '' +
+						'<div class="dfiles' + errorClass + '" rel="' + uId + ' " >' +
+						'<div>' +
+						'<h5>' + sampleIcon + this.items[i].name + '</h5>' +
+						'<a href="#" class="button button-caution button-tiny" onclick="$(this).parent().parent().remove();">删除</a>' +
+						'</div>' +
+						'<div id="' + uId + '" class="progress" style="display:none;">' +
+						'<img src="images/upload/ajax-loader.gif" />' +
+						'</div>' +
+						'</div>';
 				}
 			}
 			$("#dragAndDropFiles").append(html);
