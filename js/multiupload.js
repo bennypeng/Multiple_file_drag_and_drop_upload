@@ -34,7 +34,7 @@ function multiUploader(config){
 				var sampleIcon = '<img src="images/image.png" />';
 				var errorClass = "";
 				if(typeof this.items[i] != undefined){
-					if(self._validate(this.items[i].type) <= 0) {
+					if(self._validate(this.items[i].type) < 0) {
 						sampleIcon = '<img src="images/unknown.png" />';
 						errorClass =" invalid";
 					} 
@@ -65,7 +65,7 @@ function multiUploader(config){
 	}
 	
 	multiUploader.prototype._uploader = function(file,f){
-		if(typeof file[f] != undefined && self._validate(file[f].type) > 0){
+		if(typeof file[f] != undefined && self._validate(file[f].type) >= 0){
 			var data = new FormData();
 			var ids = file[f].name._unique();
 			data.append('file',file[f]);
